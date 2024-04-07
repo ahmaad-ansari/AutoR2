@@ -20,7 +20,7 @@ if [[ "$@" =~ "--no-devices" ]]; then
     -p 9090:9090 \
     -p 8888:8888 \
     --name r2-container-no-devices \
-    r2ware/yahboomtechnology:latest \
+    ahmaadansari/r2ware:latest \
     /bin/bash
 elif [[ "$@" =~ "--velodyne" ]]; then
   docker run -it \
@@ -68,7 +68,7 @@ elif [[ "$@" =~ "--connected-devices" ]]; then
   -p 9090:9090 \
   -p 8888:8888 \
   --name r2-container \
-  r2ware/yahboomtechnology:latest /bin/bash
+  ahmaadansari/r2ware:latest /bin/bash
 else
   show_help
   exit 1
