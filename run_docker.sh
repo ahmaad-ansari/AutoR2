@@ -30,7 +30,7 @@ elif [[ "$@" =~ "--velodyne" ]]; then
     -v /home/rosmaster/r2ware:/root/r2ware \
     -v /home/rosmaster/r2ware/.bashrc_velodyne:/root/.bashrc \
     --name velodyne-lidar \
-    r2ware/velodyne:latest \
+    ahmaadansari/velodyne:latest \
     /bin/bash
 elif [[ "$@" =~ "--connected-devices" ]]; then
   # Check if the container "r2-container" is running
