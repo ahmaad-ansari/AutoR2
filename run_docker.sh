@@ -1,4 +1,7 @@
 #!/bin/bash
+
+USER_HOME=$(eval echo ~$USER)
+
 xhost + && \
 
 show_help() {
@@ -15,8 +18,8 @@ if [[ "$@" =~ "--no-devices" ]]; then
     --net=host \
     --env="DISPLAY" \
     --env="QT_X11_NO_MITSHM=1" \
-    -v /home/rosmaster/r2ware:/root/r2ware \
-    -v /home/rosmaster/r2ware/.bashrc_yahboom:/root/.bashrc \
+    -v $USER_HOME/r2ware:/root/r2ware \
+    -v $USER_HOME/r2ware/.bashrc_yahboom:/root/.bashrc \
     -p 9090:9090 \
     -p 8888:8888 \
     --name r2-container-no-devices \
@@ -27,8 +30,8 @@ elif [[ "$@" =~ "--velodyne" ]]; then
     --net=host \
     --env="DISPLAY" \
     --env="QT_X11_NO_MITSHM=1" \
-    -v /home/rosmaster/r2ware:/root/r2ware \
-    -v /home/rosmaster/r2ware/.bashrc_velodyne:/root/.bashrc \
+    -v $USER_HOME/r2ware:/root/r2ware \
+    -v $USER_HOME/r2ware/.bashrc_velodyne:/root/.bashrc \
     --name velodyne-lidar \
     ahmaadansari/velodyne:latest \
     /bin/bash
@@ -56,8 +59,8 @@ elif [[ "$@" =~ "--connected-devices" ]]; then
   --net=host \
   --env="DISPLAY" \
   --env="QT_X11_NO_MITSHM=1" \
-  -v /home/rosmaster/r2ware:/root/r2ware \
-  -v /home/rosmaster/r2ware/.bashrc_yahboom:/root/.bashrc \
+  -v $USER_HOME/r2ware:/root/r2ware \
+  -v $USER_HOME/r2ware/.bashrc_yahboom:/root/.bashrc \
   -v "$ASTRA_DEPTH:$ASTRA_DEPTH" \
   -v "$ASTRA_UVC:$ASTRA_UVC" \
   --device=/dev/astradepth \
